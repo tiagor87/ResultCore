@@ -5,12 +5,10 @@
         <AssemblyName>ResultCore</AssemblyName>
         <RootNamespace>ResultCore</RootNamespace>
         <PackageId>ResultCore</PackageId>
-        <Version>0.0.1</Version>
-        <PackageVersion>0.0.1</PackageVersion>
         <Title>ResultCore</Title>
         <Authors>tiagor87@gmail.com</Authors>
         <Description>Retrieve success or failure result from everything.</Description>
-        <PackageProjectUrl>https://github.com/tiagor87/result</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/tiagor87/ResultCore</PackageProjectUrl>
         <RepositoryUrl>https://github.com/tiagor87/result</RepositoryUrl>
         <PackageTags>functional result exception</PackageTags>
     </PropertyGroup>
