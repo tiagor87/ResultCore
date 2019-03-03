@@ -1,9 +1,8 @@
 using System;
 using FluentAssertions;
-using ResultCore;
 using Xunit;
 
-namespace UnitTests
+namespace ResultCore.UnitTests
 {
     public class ResultTests
     {

@@ -5,6 +5,7 @@
         <AssemblyName>ResultCore</AssemblyName>
         <RootNamespace>ResultCore</RootNamespace>
         <PackageId>ResultCore</PackageId>
+        <Version>0.0.1</Version>
         <PackageVersion>0.0.1</PackageVersion>
         <Title>ResultCore</Title>
         <Authors>tiagor87@gmail.com</Authors>
