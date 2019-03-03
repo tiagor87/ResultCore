@@ -14,6 +14,5 @@ environment:
     secure: PgqGX/MKkBHptwqnLx5PvnPxIBQ/zRryi/1q/WrQ5RYmFv/7rWrWfQybg17g4FaK
 build_script:
   - ps: dotnet build -c Release
-test: on
 test_script:
   - test.cmd
