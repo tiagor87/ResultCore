@@ -4,7 +4,6 @@
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <AssemblyName>ResultCore.UnitTests</AssemblyName>
         <RootNamespace>ResultCore.UnitTests</RootNamespace>
-        <Version>0.0.1</Version>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
