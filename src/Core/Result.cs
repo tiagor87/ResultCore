@@ -47,7 +47,7 @@ namespace ResultCore
 
         public static Result Combine(params Result[] results)
         {
-            if (results.Any(x => x.Successful == false))
+            if (results.Any(x => !x.Successful))
             {
                 return Fail(results.Where(x => !x.Successful).Select(x => x.Message));
             }
