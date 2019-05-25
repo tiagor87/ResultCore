@@ -32,6 +32,16 @@ namespace ResultCore.UnitTests
         }
 
         [Fact]
+        public void Should_check_result_and_generic_result_as_IResult()
+        {
+            var result = Result.Success("Message");
+            (result is IResult).Should().BeTrue();
+
+            var resultT = Result<string>.Success("Message");
+            (resultT is IResult).Should().BeTrue();
+        }
+
+        [Fact]
         public void Should_combine_failure_results()
         {
             var result = Result.Combine(Result.Fail("Error 1"), Result.Success(1), Result.Fail("Error 2"));

@@ -4,7 +4,15 @@ using System.Linq;
 
 namespace ResultCore
 {
-    public sealed class Result
+    public interface IResult
+    {
+        bool Successful { get; }
+        string Message { get; }
+        bool Failure { get; }
+        T As<T>();
+    }
+
+    public sealed class Result : IResult
     {
         private readonly object _value;
 
@@ -39,12 +47,12 @@ namespace ResultCore
         public string Message { get; }
         public bool Failure => !Successful;
 
+        public T As<T>() => (T) Value;
+
         public static Result Success() => new Result();
         public static Result Success(object value) => new Result(value);
         public static Result Fail(string message) => new Result(message);
         public static Result Fail(IEnumerable<string> messages) => new Result(messages);
-
-        public T As<T>() => (T) Value;
 
         public static Result Combine(params Result[] results)
         {
@@ -81,7 +89,7 @@ namespace ResultCore
         }
     }
 
-    public sealed class Result<TValue>
+    public sealed class Result<TValue> : IResult
     {
         private readonly TValue _value;
 
@@ -100,15 +108,20 @@ namespace ResultCore
         {
         }
 
-        public bool Successful { get; }
-        public bool Failure => !Successful;
-        public string Message { get; }
-
         public TValue Value =>
             Successful
                 ? _value
                 : throw new InvalidOperationException(
                     $"The result has failed, it's not possible to get value from it.\nMessage: \"{Message}\".");
+
+        public bool Successful { get; }
+        public bool Failure => !Successful;
+        public string Message { get; }
+
+        public T As<T>()
+        {
+            return (T) (object) Value;
+        }
 
         public static Result<TValue> Success(TValue value) => new Result<TValue>(value);
         public static Result<TValue> Fail(string message) => new Result<TValue>(message);
