@@ -32,13 +32,13 @@ namespace ResultCore.UnitTests
         }
 
         [Fact]
-        public void Should_check_result_and_generic_result_as_IResult()
+        public void Should_check_result_and_typed_result_as_IResult()
         {
             var result = Result.Success("Message");
             (result is IResult).Should().BeTrue();
 
-            var resultT = Result<string>.Success("Message");
-            (resultT is IResult).Should().BeTrue();
+            var typedResult = Result<string>.Success("Message");
+            (typedResult is IResult).Should().BeTrue();
         }
 
         [Fact]
@@ -187,6 +187,13 @@ namespace ResultCore.UnitTests
             result.Failure.Should().BeFalse();
             result.Message.Should().BeNullOrWhiteSpace();
             result.As<string>().Should().Be("Value");
+        }
+
+        [Fact]
+        public void Should_get_value_using_as_method_from_typed_result()
+        {
+            var typedResult = Result<string>.Success("Message");
+            typedResult.As<string>().Should().Be("Message");
         }
 
         [Fact]
